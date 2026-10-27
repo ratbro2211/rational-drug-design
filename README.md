@@ -28,9 +28,17 @@ Set `VINA_BIN=/path/to/vina` to use a non-default executable. Each run uses the 
 
 The original Vina logs do not record the exact software version or a complete environment. Re-run results may therefore differ. The linked report also describes DiffDock and SwissDock, but their raw output artifacts are not included here.
 
-## Results need label confirmation
+## Reported results and data status
 
-The supplied Vina files report Mode 1 scores of -9.8 kcal/mol for the toddanol folder, -9.5 for toddaline, and -8.6 for toddaquinoline. The report assigns -8.6 to toddanol and -9.8 to toddaquinoline. The toddanol and toddaquinoline values conflict; do not use a comparative ranking until the ligand-to-output mapping is confirmed. See `DATA_AUDIT.md`.
+The final report is the primary source for the headline values in this project's summary:
+
+| Compound | Reported Vina score (kcal/mol) |
+| --- | ---: |
+| toddanol | -8.6 |
+| toddaline | -9.5 |
+| toddaquinoline | -9.8 |
+
+The archived Vina logs and pose files in the folder-labeled directories show -9.8, -9.5, and -8.6, respectively. The toddanol and toddaquinoline values therefore conflict with the report. The summary uses the report values, but the original output-to-compound mapping has not been independently verified; see `DATA_AUDIT.md`.
 
 ## Report and references
 
