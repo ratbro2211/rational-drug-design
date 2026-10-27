@@ -54,3 +54,7 @@ No license file is included.
 ## Complete report figures and results
 
 The report's embedded figures are included in [`REPORT_FIGURES.md`](REPORT_FIGURES.md), and its detailed docking pose tables and drug-likeness results are transcribed in [`REPORT_RESULTS.md`](REPORT_RESULTS.md). The complete 36-page report is linked above for context.
+
+## Original source components
+
+The additional raw files from the shared Drive docking folders are preserved in their matching directories. See [`SOURCE_COMPONENTS.md`](SOURCE_COMPONENTS.md) for the file inventory.
