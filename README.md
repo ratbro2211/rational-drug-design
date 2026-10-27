@@ -50,3 +50,7 @@ The archived Vina logs and pose files in the folder-labeled directories show -9.
 ## License
 
 No license file is included.
+
+## Complete report figures and results
+
+The report's embedded figures are included in [`REPORT_FIGURES.md`](REPORT_FIGURES.md), and its detailed docking pose tables and drug-likeness results are transcribed in [`REPORT_RESULTS.md`](REPORT_RESULTS.md). The complete 36-page report is linked above for context.
