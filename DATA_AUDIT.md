@@ -1,18 +1,18 @@
 # Data audit and open questions
 
-This repository preserves the supplied docking files. The notes below distinguish what the files show from what still needs confirmation.
+This repository preserves the supplied docking files. The notes below distinguish the selected project-summary source from what remains unverified.
 
-## Vina score labels do not match the report
+## Report-selected values and archived Vina outputs
 
-The checked-in log.txt files and output.pdbqt poses agree with each other, but two folder labels conflict with the final report:
+The final report is used as the primary source for the project's headline values. The checked-in Vina logs and output poses agree with each other, but their folder labels disagree with two values in the report:
 
-| Compound label in folder | Mode 1 in Vina log/output (kcal/mol) | Value stated in final report (kcal/mol) |
+| Compound label in folder | Mode 1 in Vina log/output (kcal/mol) | Value in final report (kcal/mol) |
 | --- | ---: | ---: |
 | toddanol | -9.8 | -8.6 |
 | toddaline | -9.5 | -9.5 |
 | toddaquinoline | -8.6 | -9.8 |
 
-The toddanol and toddaquinoline values are reversed between the repository outputs and report. This project does not establish which mapping is correct. Confirm the ligand-to-output mapping before publishing a comparative ranking or changing the scientific conclusion.
+For the summary, use the final-report values. The toddanol and toddaquinoline values are reversed relative to the archived folder-labeled outputs. No raw logs or poses have been relabeled or overwritten, and the original output-to-compound mapping remains unverified. Reconcile against the original run records before treating the ranking as independently reproduced.
 
 ## Original Vina config filenames
 
