@@ -1,19 +1,44 @@
 # Rational Drug Design
 
-Computational molecular-docking project evaluating alkaloids from *Toddalia asiatica* against HIV-1 reverse transcriptase (PDB ID: 1REV). The study compares docking predictions for toddanol, toddaline, and toddaquinoline.
+A computational docking study of *Toddalia asiatica* alkaloids against HIV-1 reverse transcriptase. The supplied report identifies the target as PDB 1REV and discusses toddanol, toddaline, and toddaquinoline.
 
-## Project files
+> **Scope:** Docking scores are computational predictions, not measured binding affinities or evidence of antiviral activity, safety, or clinical suitability.
 
-- `Dock_HIV_toddanol/`, `Dock_HIV_toddaline/`, and `Dock_HIV_toddaquinoline/` contain the corresponding ligand and receptor structures, docking configuration files, logs, and output poses.
-- `ligands/` contains an additional compound structure file.
-- `figures/` contains project visualization images.
+## Project structure
 
-## Final report
+- `Dock_HIV_toddanol/`, `Dock_HIV_toddaline/`, `Dock_HIV_toddaquinoline/`: prepared receptor and ligand files, original configurations, Vina logs, and poses.
+- `config.run.txt` in each folder: a runnable configuration using the ligand filename that is actually present. The supplied `config.txt` files remain unchanged.
+- `scripts/run_vina.sh`: reruns all three cases and writes separate reproduced outputs without overwriting the supplied results.
+- `figures/`: supplied project visualizations.
+- `ligands/`: an extra structure with PubChem CID 145996610. It is retained as an unassigned input and is not included in the three-ligand comparison.
+- `DATA_AUDIT.md`: verified score-label conflict, source config filename mismatch, and search-box notes.
 
-[Open the final report PDF on Google Drive](https://drive.google.com/file/d/14_uqM5_H2zxIRSuIsNtA-fZQtzYjWHBC/view?usp=drivesdk). The PDF is linked rather than stored in this repository.
+The toddaline folder also contains a source file named `ligand` without an extension; it is preserved as supplied.
 
-## Interpretation
+## Reproduce the Vina runs
 
-Docking scores and poses are computational predictions. They do not establish antiviral activity, safety, or clinical suitability; experimental validation would be required.
+1. Install AutoDock Vina and make its executable available on `PATH`.
+2. From the repository root, run:
 
-No license has been added.
+   ```bash
+   bash scripts/run_vina.sh
+   ```
+
+Set `VINA_BIN=/path/to/vina` to use a non-default executable. Each run uses the supplied center (11.956, -21.466, 25.367 Angstroms), a 40-Angstrom box on each axis, exhaustiveness 8, and energy range 4. Vina logs warn that this box volume (64,000 cubic Angstroms) exceeds 27,000; review `DATA_AUDIT.md` before interpreting results as a focused active-site comparison.
+
+The original Vina logs do not record the exact software version or a complete environment. Re-run results may therefore differ. The linked report also describes DiffDock and SwissDock, but their raw output artifacts are not included here.
+
+## Results need label confirmation
+
+The supplied Vina files report Mode 1 scores of -9.8 kcal/mol for the toddanol folder, -9.5 for toddaline, and -8.6 for toddaquinoline. The report assigns -8.6 to toddanol and -9.8 to toddaquinoline. The toddanol and toddaquinoline values conflict; do not use a comparative ranking until the ligand-to-output mapping is confirmed. See `DATA_AUDIT.md`.
+
+## Report and references
+
+- [Final report PDF on Google Drive](https://drive.google.com/file/d/14_uqM5_H2zxIRSuIsNtA-fZQtzYjWHBC/view?usp=drivesdk) (linked, not stored in this repository).
+- [RCSB PDB: 1REV](https://www.rcsb.org/structure/1REV)
+- [AutoDock Vina publication](https://doi.org/10.1002/jcc.21334)
+- PubChem records present in the SDF files: [CID 11390791](https://pubchem.ncbi.nlm.nih.gov/compound/11390791), [CID 2703](https://pubchem.ncbi.nlm.nih.gov/compound/2703), [CID 102004726](https://pubchem.ncbi.nlm.nih.gov/compound/102004726), and the unmapped [CID 145996610](https://pubchem.ncbi.nlm.nih.gov/compound/145996610).
+
+## License
+
+No license file is included.
